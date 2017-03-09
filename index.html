@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="mycanvasjs/jquery-3.1.0.js"></script>
+    <script src="mycanvasjs/shape.js"></script>
+    <script src="mycanvasjs/mycanvas.js"></script>
+    <script src="mycanvasjs/picture.js"></script>
+</head>
+<style>
+    *{
+        box-sizing: border-box;
+    }
+    html,body{
+        margin:0;padding:0;width:100%;height:100%;
+    }
+    ul,li{
+        margin:0;padding:0;
+        list-style: none;
+        cursor:pointer;
+    }
+    .box{
+    width:800px;height:400px;border:1px solid #000;position:fixed;top:0;bottom:0;left:0;right:0;margin:auto;
+}
+    header{
+        width:100%;height:10%;background:saddlebrown;line-height:40px;text-align: center;
+        color:sandybrown;
+    }
+
+    header .headlist{
+        float:left;padding:0 20px;cursor:pointer;
+        transition: color 2s ease;
+    }
+    .headlist:hover{
+        color:beige;
+    }
+    .main{
+        width:100%;height:90%;float:left;
+    }
+    .main .menu{
+        box-sizing: border-box;width:20%;height:100%;background:linear-gradient(180deg,sandybrown 0% ,saddlebrown 80%);color:#ccc;overflow:auto;float:left;
+    }
+    .main .menu ul{
+        text-align: center;
+        display: none;
+    }
+    .main .menu ul:nth-child(1){
+        display:block;
+    }
+    .main .menu ul li{
+        margin-top: 15px;
+        font-size:16px;
+    }
+    .canvas-box{
+        float:left;width:80%;height:100%;
+        position:relative;
+    }
+    .canvas-box canvas{
+        background:linear-gradient(90deg,#999 0% ,white 1%);
+    }
+    .canvas-box .copy{
+        position:absolute;
+        left:0;top:0;z-index:999;
+        width:100%;height:100%;
+    }
+</style>
+<body>
+<img src="" alt="" style="width:200px;" hidden>
+<input type="file" style="display:none">
+<div class="box">
+    <header>
+        <div class="headlist">文件</div>
+        <div class="headlist">画图</div>
+        <div class="headlist">画图方式</div>
+        <div class="headlist">画图的颜色</div>
+        <div class="headlist">线条的宽度</div>
+        <div class="headlist">图片处理</div>
+    </header>
+    <div class="main">
+        <aside class="menu">
+            <ul class="aside-list">
+                <li>新建</li>
+                <li>返回</li>
+                <li>保存</li>
+            </ul>
+            <ul class="aside-list">
+                <li data-role="line">画线</li>
+                <li data-role="rect">矩形</li>
+                <li data-role="arc">圆</li>
+                <li data-role="duobian">多边形</li>
+                <li data-role="duojiao">多角形</li>
+                <li data-role="pencil">铅笔工具</li>
+            </ul>
+            <ul class="aside-list">
+                <li data-role="fill">填充</li>
+                <li data-role="stroke">描边</li>
+            </ul>
+            <ul class="aside-list">
+                <li>填充的颜色:
+                    <input type="color" data-role="fillStyle"></li>
+                <li>描边的颜色:
+                    <input type="color" data-role="strokeStyle">
+                </li>
+            </ul>
+            <ul class="aside-list">
+                <li data-role="5">粗</li>
+                <li data-role="3">中</li>
+                <li data-role="1">细</li>
+                <li data-role="null">调节值：
+                    <input type="number"  style="width:40px;border-radius:40%;border:none;background:saddlebrown">
+                </li>
+            </ul>
+            <ul class="aside-list">
+                <li data-role="blur">模糊</li>
+                <li data-role="fanxiang">反向</li>
+                <li data-role="masaike">马赛克</li>
+                <li data-role="reset">重置</li>
+            </ul>
+        </aside>
+        <div class="canvas-box">
+            <canvas>
+
+            </canvas>
+            <div class="copy">
+
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
